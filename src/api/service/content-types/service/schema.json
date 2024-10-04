@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "_softDeletedAt": {
+      "type": "datetime",
+      "configurable": false,
+      "writable": false,
+      "visible": false,
+      "private": true
+    },
+    "_softDeletedById": {
+      "type": "integer",
+      "configurable": false,
+      "writable": false,
+      "visible": false,
+      "private": true
+    },
+    "_softDeletedByType": {
+      "type": "string",
+      "configurable": false,
+      "writable": false,
+      "visible": false,
+      "private": true
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 120,
+      "minLength": 3
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 300
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "service"
+    },
+    "businesses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::business.business",
+      "mappedBy": "services"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "services"
+    },
+    "customizations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::customization.customization",
+      "mappedBy": "service"
+    },
+    "color": {
+      "type": "string"
+    },
+    "sort": {
+      "type": "integer"
+    }
+  }
+}

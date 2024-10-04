@@ -1,0 +1,8 @@
+{
+  "name": "fetti-api",
+  "description": "fetti api server",
+  "version": "0.0.1",
+  "engines": {
+    "node": "20.3.0"
+  }
+}

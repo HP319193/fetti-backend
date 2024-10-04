@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customizations",
+  "info": {
+    "singularName": "customization",
+    "pluralName": "customizations",
+    "displayName": "Customization",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "_softDeletedAt": {
+      "type": "datetime",
+      "configurable": false,
+      "writable": false,
+      "visible": false,
+      "private": true
+    },
+    "_softDeletedById": {
+      "type": "integer",
+      "configurable": false,
+      "writable": false,
+      "visible": false,
+      "private": true
+    },
+    "_softDeletedByType": {
+      "type": "string",
+      "configurable": false,
+      "writable": false,
+      "visible": false,
+      "private": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "service": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::service.service",
+      "inversedBy": "customizations"
+    },
+    "options": {
+      "type": "json"
+    }
+  }
+}
